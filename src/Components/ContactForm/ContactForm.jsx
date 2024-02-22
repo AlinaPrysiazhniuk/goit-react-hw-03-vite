@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import * as Yup from 'yup';
-import 'yup-phone';
+import 'yup-phone-lite';
 
 const initialValues = {
   username: '',
@@ -13,7 +13,7 @@ const ContactSchema = Yup.object().shape({
     .min(2, 'Too short!')
     .max(20, 'Too long!')
     .required('Required'),
-  phonenumber: Yup.number().min(8).required('A phone number is required'),
+  phonenumber: Yup.string().phone('UA').required('Required'),
 });
 
 export default function ContactForm() {
