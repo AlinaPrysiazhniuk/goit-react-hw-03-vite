@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
+import SearchContact from './SearchBox/SearchBox';
 
 function App() {
   const initialContacts = [
@@ -12,24 +13,34 @@ function App() {
   ];
 
   const [contacts, setContacts] = useState(initialContacts);
+  const [filter, setFilter] = useState('');
 
+  //при додаванні нового контаку ми спочатку в новий масив розпилюємо попердній масив
+  //контактів, а потім в кінці додаємо новий
   const addContact = newContact => {
     setContacts(prevContacts => {
       return [...prevContacts, newContact];
     });
   };
 
+  //при видаленні контакту ми фільтруємо масив контактів і повертаємо лише ті контакти
+  //ідентифікатори яких не співпадають з вибраним
   const deleteContact = contactId => {
     setContacts(prevContacts => {
       return prevContacts.filter(contact => contact.id !== contactId);
     });
   };
 
+  const filterContact = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
     <>
       <h1>Phonebook</h1>
       <ContactForm onAdd={addContact} />
-      <ContactList contacts={contacts} onDelete={deleteContact} />
+      <SearchContact value={filter} onFilter={setFilter} />
+      <ContactList contacts={filterContact} onDelete={deleteContact} />
     </>
   );
 }

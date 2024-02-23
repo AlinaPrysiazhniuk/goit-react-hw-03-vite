@@ -11,8 +11,8 @@ const initialValues = {
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, 'Too short!')
-    .max(20, 'Too long!')
+    .min(3, 'Too short!')
+    .max(50, 'Too long!')
     .required('Required'),
   number: Yup.string()
     .phone('UA', 'Phone number must be valid')
