@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import * as Yup from 'yup';
 import 'yup-phone-lite';
+import { nanoid } from 'nanoid';
 
 const initialValues = {
   name: '',
@@ -24,7 +25,7 @@ export default function ContactForm({ onAdd }) {
   const phoneId = useId();
 
   const handleSubmit = (values, actions) => {
-    onAdd(values);
+    onAdd({ ...values, id: nanoid() });
     actions.resetForm();
   };
   return (

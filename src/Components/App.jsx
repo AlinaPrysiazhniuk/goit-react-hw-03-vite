@@ -3,21 +3,22 @@ import './App.css';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import SearchContact from './SearchBox/SearchBox';
+// import { nanoid } from 'nanoid';
 
 function App() {
-  const initialContacts = [
-    { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-    { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-    { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-    { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-  ];
+  // const initialContacts = [
+  //   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+  //   { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+  //   { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+  //   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+  // ];
 
-  // const getInitialContacts = () => {
-  //   const savedContacts = window.localStorage.getItem('contacts');
-  //   return savedContacts !== null ? JSON.parse(savedContacts) : initialContacts;
-  // };
+  const getInitialContacts = () => {
+    const contactsStorage = window.localStorage.getItem('contacts');
+    return contactsStorage !== null ? JSON.parse(contactsStorage) : [];
+  };
 
-  const [contacts, setContacts] = useState(initialContacts);
+  const [contacts, setContacts] = useState(getInitialContacts);
   const [filter, setFilter] = useState('');
 
   //при додаванні нового контаку ми спочатку в новий масив розпилюємо попердній масив
@@ -46,8 +47,8 @@ function App() {
   }, [contacts]);
 
   // useEffect(() => {
-  //   getInitialContacts();
-  // });
+  //   window.localStorage.setItem('contacts', JSON.stringify(initialContacts));
+  // }, []);
 
   return (
     <>
