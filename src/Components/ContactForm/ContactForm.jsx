@@ -1,27 +1,30 @@
+/* eslint-disable react/prop-types */
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import * as Yup from 'yup';
 import 'yup-phone-lite';
 
 const initialValues = {
-  username: '',
-  phonenumber: '',
+  name: '',
+  number: '',
 };
 
 const ContactSchema = Yup.object().shape({
-  username: Yup.string()
+  name: Yup.string()
     .min(2, 'Too short!')
     .max(20, 'Too long!')
     .required('Required'),
-  phonenumber: Yup.string().phone('UA').required('Required'),
+  number: Yup.string()
+    .phone('UA', 'Phone number must be valid')
+    .required('Required'),
 });
 
-export default function ContactForm() {
+export default function ContactForm({ onAdd }) {
   const nameId = useId();
   const phoneId = useId();
 
   const handleSubmit = (values, actions) => {
-    console.log(values);
+    onAdd(values);
     actions.resetForm();
   };
   return (
@@ -34,14 +37,14 @@ export default function ContactForm() {
         <Form>
           <div>
             <label htmlFor={nameId}>Name</label>
-            <Field type="text" name="username" id={nameId} />
-            <ErrorMessage name="username" component="span" />
+            <Field type="text" name="name" id={nameId} />
+            <ErrorMessage name="name" component="span" />
           </div>
 
           <div>
             <label htmlFor={phoneId}>Number</label>
-            <Field type="tel" name="phonenumber" id={phoneId} />
-            <ErrorMessage name="phonenumber" component="span" />
+            <Field type="tel" name="number" id={phoneId} />
+            <ErrorMessage name="number" component="span" />
           </div>
 
           <button type="submit">Add contact</button>
