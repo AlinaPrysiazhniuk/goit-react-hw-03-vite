@@ -1,0 +1,31 @@
+.form {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 280px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.info_user {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.input {
+  font-size: 20px;
+}
+
+.btn_add {
+  width: 100px;
+  height: 30px;
+  background-color: rgba(104, 104, 104, 0.239);
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+}

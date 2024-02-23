@@ -4,6 +4,7 @@ import { useId } from 'react';
 import * as Yup from 'yup';
 import 'yup-phone-lite';
 import { nanoid } from 'nanoid';
+import css from './ContactForm.module.css';
 
 const initialValues = {
   name: '',
@@ -35,20 +36,27 @@ export default function ContactForm({ onAdd }) {
         onSubmit={handleSubmit}
         validationSchema={ContactSchema}
       >
-        <Form>
-          <div>
+        <Form className={css.form}>
+          <div className={css.info_user}>
             <label htmlFor={nameId}>Name</label>
-            <Field type="text" name="name" id={nameId} />
+            <Field type="text" name="name" id={nameId} className={css.input} />
             <ErrorMessage name="name" component="span" />
           </div>
 
-          <div>
+          <div className={css.info_user}>
             <label htmlFor={phoneId}>Number</label>
-            <Field type="tel" name="number" id={phoneId} />
+            <Field
+              type="tel"
+              name="number"
+              id={phoneId}
+              className={css.input}
+            />
             <ErrorMessage name="number" component="span" />
           </div>
 
-          <button type="submit">Add contact</button>
+          <button type="submit" className={css.btn_add}>
+            Add contact
+          </button>
         </Form>
       </Formik>
     </>

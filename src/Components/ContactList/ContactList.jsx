@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import Contact from '../Contact/Contact';
+import css from './ContactList.module.css';
 
 export default function ContactList({ contacts, onDelete }) {
   return (
-    <ul>
+    <ul className={css.list}>
       {contacts.map(contact => (
-        <li key={contact.id}>
+        <li key={contact.id} className={css.item}>
           <Contact data={contact} onDelete={onDelete} />
         </li>
       ))}
