@@ -1,3 +1,7 @@
 .item_contact {
   width: 280px;
 }
+
+.btn_delete {
+  padding: 3px 8px;
+}

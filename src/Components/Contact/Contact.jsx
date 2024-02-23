@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-// import css from './Contact.module.css'
+import css from './Contact.module.css';
 
 export default function Contact({ data: { id, name, number }, onDelete }) {
   return (
@@ -9,7 +9,11 @@ export default function Contact({ data: { id, name, number }, onDelete }) {
         <p>{number}</p>
       </div>
 
-      <button type="button" onClick={() => onDelete(id)}>
+      <button
+        type="button"
+        onClick={() => onDelete(id)}
+        className={css.btn_delete}
+      >
         Delete
       </button>
     </>
