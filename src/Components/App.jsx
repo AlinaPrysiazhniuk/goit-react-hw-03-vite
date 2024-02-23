@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
@@ -11,6 +11,11 @@ function App() {
     { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ];
+
+  // const getInitialContacts = () => {
+  //   const savedContacts = window.localStorage.getItem('contacts');
+  //   return savedContacts !== null ? JSON.parse(savedContacts) : initialContacts;
+  // };
 
   const [contacts, setContacts] = useState(initialContacts);
   const [filter, setFilter] = useState('');
@@ -35,6 +40,14 @@ function App() {
   const filterContact = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
+
+  useEffect(() => {
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
+
+  // useEffect(() => {
+  //   getInitialContacts();
+  // });
 
   return (
     <>
