@@ -17,7 +17,7 @@ const ContactSchema = Yup.object().shape({
     .max(50, 'Too long!')
     .required('Required'),
   number: Yup.string()
-    .phone('UA', 'Phone number must be in format +38 (code) *******')
+    .phone('UA', 'Phone number must be in format +38(0XX) XXX-XX-XX')
     .required('Required'),
 });
 
