@@ -13,12 +13,13 @@
 .info_user {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   width: 100%;
 }
 
 .input {
-  font-size: 20px;
+  padding: 3px;
+  height: 20px;
 }
 
 .btn_add {
