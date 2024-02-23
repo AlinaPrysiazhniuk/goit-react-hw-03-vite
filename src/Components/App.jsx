@@ -3,7 +3,6 @@ import './App.css';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import SearchContact from './SearchBox/SearchBox';
-// import { nanoid } from 'nanoid';
 
 function App() {
   // const initialContacts = [
