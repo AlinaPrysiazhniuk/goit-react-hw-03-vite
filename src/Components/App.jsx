@@ -29,6 +29,7 @@ function App() {
     setContacts(prevContacts => {
       return prevContacts.filter(contact => contact.id !== contactId);
     });
+    setFilter('');
   };
 
   const filterContact = contacts.filter(contact =>
