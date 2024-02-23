@@ -30,3 +30,8 @@
   border-radius: 10px;
   font-size: 14px;
 }
+
+.error {
+  color: red;
+  text-align: center;
+}

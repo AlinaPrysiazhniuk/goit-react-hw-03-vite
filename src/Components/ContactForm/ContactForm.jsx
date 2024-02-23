@@ -40,7 +40,7 @@ export default function ContactForm({ onAdd }) {
           <div className={css.info_user}>
             <label htmlFor={nameId}>Name</label>
             <Field type="text" name="name" id={nameId} className={css.input} />
-            <ErrorMessage name="name" component="span" />
+            <ErrorMessage name="name" component="span" className={css.error} />
           </div>
 
           <div className={css.info_user}>
@@ -51,7 +51,11 @@ export default function ContactForm({ onAdd }) {
               id={phoneId}
               className={css.input}
             />
-            <ErrorMessage name="number" component="span" />
+            <ErrorMessage
+              name="number"
+              component="span"
+              className={css.error}
+            />
           </div>
 
           <button type="submit" className={css.btn_add}>
