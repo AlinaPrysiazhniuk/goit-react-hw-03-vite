@@ -1,5 +1,10 @@
-:root {
+#root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  max-width: 320px;
+  margin: 50px auto;
+  padding: 2rem;
+  border: 2px solid black;
+  border-radius: 5px;
   line-height: 1.5;
   font-weight: 400;
   font-size: 14px;
@@ -11,7 +16,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-
-p {
+p,
+h1 {
   margin: 0;
 }

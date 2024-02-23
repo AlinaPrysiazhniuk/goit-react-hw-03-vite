@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+// import css from './App.module.css';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import SearchContact from './SearchBox/SearchBox';
@@ -44,10 +44,6 @@ function App() {
   useEffect(() => {
     window.localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
-
-  // useEffect(() => {
-  //   window.localStorage.setItem('contacts', JSON.stringify(initialContacts));
-  // }, []);
 
   return (
     <>
