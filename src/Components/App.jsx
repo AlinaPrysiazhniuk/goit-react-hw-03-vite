@@ -19,11 +19,17 @@ function App() {
     });
   };
 
+  const deleteContact = contactId => {
+    setContacts(prevContacts => {
+      return prevContacts.filter(contact => contact.id !== contactId);
+    });
+  };
+
   return (
     <>
       <h1>Phonebook</h1>
       <ContactForm onAdd={addContact} />
-      <ContactList contacts={contacts} />
+      <ContactList contacts={contacts} onDelete={deleteContact} />
     </>
   );
 }
