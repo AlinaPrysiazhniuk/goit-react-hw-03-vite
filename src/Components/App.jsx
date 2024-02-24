@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import SearchContact from './SearchBox/SearchBox';
+import PropTypes from 'prop-types';
 
 function App() {
   // const initialContacts = [
@@ -56,3 +57,11 @@ function App() {
 }
 
 export default App;
+
+App.propTypes = {
+  addContact: PropTypes.func,
+  filter: PropTypes.string,
+  setFilter: PropTypes.func,
+  filterContact: PropTypes.array,
+  deleteContact: PropTypes.func,
+};

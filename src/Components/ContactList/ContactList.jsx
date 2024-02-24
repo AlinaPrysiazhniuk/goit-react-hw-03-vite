@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import Contact from '../Contact/Contact';
 import css from './ContactList.module.css';
+import PropTypes from 'prop-types';
 
 export default function ContactList({ contacts, onDelete }) {
   return (
@@ -13,3 +13,8 @@ export default function ContactList({ contacts, onDelete }) {
     </ul>
   );
 }
+
+ContactList.propTypes = {
+  contacts: PropTypes.array,
+  onDelete: PropTypes.func,
+};

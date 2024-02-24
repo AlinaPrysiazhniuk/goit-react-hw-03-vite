@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import css from './Contact.module.css';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { IoMdContact } from 'react-icons/io';
@@ -27,3 +27,12 @@ export default function Contact({ data: { id, name, number }, onDelete }) {
     </>
   );
 }
+
+Contact.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }),
+  onDelete: PropTypes.func.isRequired,
+};

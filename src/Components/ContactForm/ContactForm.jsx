@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import * as Yup from 'yup';
 import 'yup-phone-lite';
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
+import PropTypes from 'prop-types';
 
 const initialValues = {
   name: '',
@@ -66,3 +66,7 @@ export default function ContactForm({ onAdd }) {
     </>
   );
 }
+
+ContactForm.propTypes = {
+  onAdd: PropTypes.func,
+};
